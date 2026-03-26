@@ -29,6 +29,9 @@ class Process implements Runnable {
     private int burstTime; // Total time the process requires to complete (in milliseconds)
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
+    // Feature 3: Track waiting time
+    private long arrivalTime;
+    private long waitingTime;
     private int priority;// Feature 1: Add priority to each process
 
     // Constructor to initialize the process with name, burst time, and time quantum
@@ -38,11 +41,17 @@ class Process implements Runnable {
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
         this.priority = 1 + new Random().nextInt(5);//Feature 1
+       //Feature 3
+        arrivalTime = System.currentTimeMillis();
+        waitingTime = 0;
     }
 
     // This method will be called when the thread for this process is started
     @Override
     public void run() {
+        //Feature 3
+        waitingTime += System.currentTimeMillis() - arrivalTime;
+        arrivalTime = System.currentTimeMillis();
         // Simulate running for either the time quantum or remaining time, whichever is smaller
         int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
         
@@ -147,6 +156,11 @@ class Process implements Runnable {
     public boolean isFinished() {
         return remainingTime <= 0;
     }
+
+    //Feature 3
+    public long getWaitingTime() {
+    return waitingTime;
+}
 }
 
 public class SchedulerSimulation {
@@ -284,22 +298,31 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
-    }
+
+
+                          //Feature 3
+                          System.out.println("\nProcess Summary:");
+                          System.out.println("Name | Burst Time | Waiting Time");
+
+                          for (Process p : processMap.values()) {
+                          System.out.println(p.getName() + " | " + p.getBurstTime() + " | " + p.getWaitingTime());
+                          }
+                            }
     
-    // Method to add a process to the queue and map, while printing a "ready" message
-    public static void addProcessToQueue(Process process, Queue<Thread> processQueue, 
+                        // Method to add a process to the queue and map, while printing a "ready" message
+                     public static void addProcessToQueue(Process process, Queue<Thread> processQueue, 
                                         Map<Thread, Process> processMap) {
-        // Create a new thread to run the process
-        Thread thread = new Thread(process);
+                         // Create a new thread to run the process
+                        Thread thread = new Thread(process);
         
-        // Add the thread to the ready queue
-        processQueue.add(thread);
+                    // Add the thread to the ready queue
+                         processQueue.add(thread);
         
-        // Map the thread to the process, so we can track the process associated with each thread
-        processMap.put(thread, process);
+                    // Map the thread to the process, so we can track the process associated with each thread
+                        processMap.put(thread, process);
         
-        // Print a message indicating the process has entered the ready queue
-        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
+                    // Print a message indicating the process has entered the ready queue
+                     System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
                           Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
                           Colors.RESET+ " (Priority: " + process.getPriority() + ")");
