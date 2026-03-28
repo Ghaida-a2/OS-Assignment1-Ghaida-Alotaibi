@@ -32,68 +32,68 @@ Document your development process as you work on the assignment. Add entries sho
 
 ## Your Development Log:
 
-### Entry 1 - [Date and Time]
-**What I did**: 
+### Entry 1 - [March 27, 2026, 3:00 PM]
+**What I did**: Set up the project and ran the code
 
-**Details**: 
+**Details**: Updated student ID and tested initial output  
 
-**Challenges**: 
+**Challenges**: Understanding code structure 
 
-**Solution**: 
+**Solution**: Reviewed code and textbook
 
-**Time spent**: 
-
----
-
-### Entry 2 - [Date and Time]
-**What I did**: 
-
-**Details**: 
-
-**Challenges**: 
-
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 1 hours
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**: 
+### Entry 2 - [March 27, 2026, 5:00 PM]
+**What I did**: Studied Round Robin logic 
 
-**Details**: 
+**Details**: Analyzed ready queue behavior
 
-**Challenges**: 
+**Challenges**: Understanding re-queue mechanism
 
-**Solution**: 
+**Solution**: Traced output step by step
 
-**Time spent**: 
-
----
-
-### Entry 4 - [Date and Time]
-**What I did**: 
-
-**Details**: 
-
-**Challenges**: 
-
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 2 hours
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**: 
+### Entry 3 - [March 27, 2026, 7:00 PM]
+**What I did**: Implemented Feature 1
 
-**Details**: 
+**Details**: Added new functionality
 
-**Challenges**: 
+**Challenges**: Integration with existing code
 
-**Solution**: 
+**Solution**: Tested incrementally 
 
-**Time spent**: 
+**Time spent**:  1.5 hours
+
+---
+
+### Entry 4 - [March 27, 2026, 9:00 PM]
+**What I did**: Implemented Feature 2
+
+**Details**: Improved scheduling behavior 
+
+**Challenges**: Debugging threads 
+
+**Solution**: Used print debugging
+
+**Time spent**: 1.5 hours
+
+---
+
+### Entry 5 - [March 27, 2026, 11:00 PM]
+**What I did**: Final testing and documentation
+
+**Details**: Verified output and wrote answers 
+
+**Challenges**: Ensuring correctness 
+
+**Solution**: Multiple test runs
+
+**Time spent**:  2 hours
 
 ---
 
@@ -112,10 +112,10 @@ Document your development process as you work on the assignment. Add entries sho
 
 ## Summary
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [8 hours]
 
-**Most challenging part**: 
+**Most challenging part**: Thread behavior understanding 
 
-**Most interesting learning**: 
+**Most interesting learning**: CPU scheduling simulation 
 
-**What I would do differently next time**: 
+**What I would do differently next time**: Plan features earlier
